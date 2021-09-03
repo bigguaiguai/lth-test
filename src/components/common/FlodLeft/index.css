@@ -1,0 +1,47 @@
+.flod-container{
+	height: 100%;
+	/* // position: relative;
+	// overflow-x: hidden; */
+	border: 1px solid green;
+	
+
+}
+.flod-container-main-open{
+	/* // display: block;
+	// height: 100%; */
+}
+.flod-container-main-close{
+	display: none;
+	border: 1px solid green;
+	height: 100%;
+}
+.fold-button{
+	background-color: #44bef7;
+	border: 1px solid #44bef7;
+	border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	position: absolute;
+	top: calc(50% - 14px);
+
+	cursor: pointer;
+}
+.fold-button-open{
+	right: -14px;
+}
+.fold-button-close{
+	left: -14px;
+	transform: rotate(180deg);
+}
+.flod-container-open{
+	/* // display: block; */
+	/* // width: 100%; */
+	background-color: green;
+}
+.flod-container-close{
+	/* // display: none; */
+	/* // width: 14px; */
+}
+.test{
+	border: 1px solid red !important;
+}
