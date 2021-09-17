@@ -3,7 +3,7 @@ import { Link, } from 'react-router-dom';
 
 import { Layout, Menu } from 'antd'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import "./index.less"
+import "./index.css"
 import SubMenu from "antd/lib/menu/SubMenu";
 
 const { Header, Content, Footer, Sider } = Layout

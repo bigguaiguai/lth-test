@@ -61,9 +61,12 @@ class Home1 extends Component {
         const defaultSelectedKeys = location.pathname.split('/').pop()
         const defaultOpenKeys = defaultSelectedKeys.split('-')[0]
         const breadcrumbNameMap = {
-            '/home1': 'antd',
-            '/home1/nav1-opt1': '布局-搜索表格',
-            '/home1/nav1-opt2': '布局-opt2',
+            '/home': 'home',
+            [`${match.path}`]: 'antd',
+            [`${match.path}/nav1-opt1`]: '布局-搜索表格',
+            [`${match.path}/nav1-opt2`]: '布局-opt2',
+            [`${match.path}/nav2-opt1`]: 'option1',
+            [`${match.path}/nav2-opt2`]: 'option12',
         }
         const pathSnippets = location.pathname.split('/').filter(i => i);
         const extraBreadcrumbItems = pathSnippets.map((item, index) => {
@@ -74,14 +77,11 @@ class Home1 extends Component {
                 </Breadcrumb.Item>
             )
         })
-
         const breadcrumbItems = [].concat(extraBreadcrumbItems);
 
         return (
             <Layout className='home1-layout'>
-                <Sider
-                    collapsible={true}
-                >
+                <Sider collapsible={true} style={{borderRight: '1px solid #eee'}}>
                     <Menu
                         defaultSelectedKeys={[defaultSelectedKeys]}
                         defaultOpenKeys={[defaultOpenKeys]}
@@ -107,7 +107,7 @@ class Home1 extends Component {
                         }
                     </Menu>
                 </Sider>
-                <Layout style={{ padding: '0 16px 16px', }}>
+                <Layout className='home-layout-right-layout'>
                     <Breadcrumb style={{ margin: '16px 0' }}>{breadcrumbItems}</Breadcrumb>
                     <Content>
                         <Switch>
