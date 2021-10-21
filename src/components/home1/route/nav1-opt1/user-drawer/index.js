@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Drawer, Form, Input, InputNumber, Button, message, Space } from 'antd'
+import { Drawer, Form, Input, InputNumber, Button, message, Space, Radio } from 'antd'
 import { SearchOutlined, PlusOutlined, NotificationOutlined } from '@ant-design/icons';
 import {api} from '../config'
 import './index.css';
@@ -18,9 +18,16 @@ class userDrawer extends Component {
 
     init = () => {
         const { currentUser, isEdit } = this.props;
+        const {detail} = currentUser;
+        console.log(detail)
         isEdit && this.formRef?.setFieldsValue({
             name: currentUser.name,
             age: currentUser.age,
+            address: detail.address,
+            tel: detail.tel,
+            height: detail.height,
+            weight: detail.weight,
+            sex: detail.sex,
         })
     }
 
@@ -75,18 +82,51 @@ class userDrawer extends Component {
                             labelCol={{ span: 3, }}
                         >
                             <Form.Item
-                                label="name"
                                 name="name"
+                                label="姓名"
                                 rules={[{ required: true, message: '请输入名字!' }]}
                             >
                                 <Input />
                             </Form.Item>
                             <Form.Item
                                 name='age'
-                                label="age"
+                                label="年龄"
                                 rules={[{ type: 'number', min: 0, max: 99 }]}
                             >
                                 <InputNumber style={{ width: '100%' }} />
+                            </Form.Item>
+                            <Form.Item
+                                name='address'
+                                label="地址"
+                            >
+                                <Input />
+                            </Form.Item>
+                            <Form.Item
+                                name='tel'
+                                label="电话"
+                            >
+                                <Input />
+                            </Form.Item>
+                            <Form.Item
+                                name='height'
+                                label="身高"
+                            >
+                                <InputNumber style={{ width: '100%' }} />
+                            </Form.Item>
+                            <Form.Item
+                                name='weight'
+                                label="体重"
+                            >
+                                <InputNumber style={{ width: '100%' }} />
+                            </Form.Item>
+                            <Form.Item
+                                name='sex'
+                                label="性别"
+                            >
+                                <Radio.Group>
+                                    <Radio value={1}>男</Radio>
+                                    <Radio value={0}>女</Radio>
+                                </Radio.Group>
                             </Form.Item>
                         </Form>
                     </div>
